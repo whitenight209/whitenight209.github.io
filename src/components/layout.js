@@ -1,7 +1,10 @@
 import * as React from "react"
 import { Link } from "gatsby"
+import {Container} from "@chakra-ui/react";
+import Header from "./header";
+import Footer from "./footer";
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ location, children, title }) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
@@ -21,15 +24,11 @@ const Layout = ({ location, title, children }) => {
   }
 
   return (
-    <div className="global-wrapper" data-is-root-path={isRootPath}>
-      <header className="global-header">{header}</header>
-      <main>{children}</main>
-      <footer>
-        © {new Date().getFullYear()}, Built with
-        {` `}
-        <a href="https://www.gatsbyjs.com">Gatsby</a>
-      </footer>
-    </div>
+    <Container data-is-root-path={isRootPath} maxW='1080px' minW='1080px' paddingTop={100}>
+      <Header/>
+      {children}
+      <Footer/>
+    </Container>
   )
 }
 
