@@ -1,8 +1,9 @@
-import * as React from "react"
-import {Box, Divider, Flex, Grid, GridItem, Heading, Text} from "@chakra-ui/react";
+import * as React from "react";
+import { Link } from "gatsby";
+import {Box, Flex, Grid, GridItem, Heading, Text} from "@chakra-ui/react";
 import Tag from "./tag";
 
-const MyCard = ({date, title, tags, content, description}) => {
+const MyCard = ({path, date, title, tags, content, description}) => {
     return(
         <Box borderTop='1px' borderColor='gray.200' paddingTop={4}>
             <Grid templateColumns='repeat(4, 1fr)' gap={6}>
@@ -10,7 +11,7 @@ const MyCard = ({date, title, tags, content, description}) => {
                     <Text fontSize='md' color='gray.500' mt={2}>{date}</Text>
                 </GridItem>
                 <GridItem colSpan={3}>
-                    <Heading as='h2' size='lg' paddingBottom={1}>{title}</Heading>
+                    <Heading as='h2' size='lg' paddingBottom={1}><Link to={path}>{title}</Link></Heading>
                     <Flex mt='2'>
                         {tags.map(tag => <Tag name={tag}/>)}
                     </Flex>

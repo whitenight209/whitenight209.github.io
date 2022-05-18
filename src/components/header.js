@@ -1,5 +1,5 @@
 import React from 'react';
-import {Flex, Heading, Spacer, Square} from "@chakra-ui/react";
+import {Flex, Heading, Spacer} from "@chakra-ui/react";
 import Menu from "./menu";
 
 // title and menu
