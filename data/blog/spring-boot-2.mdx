@@ -1,0 +1,53 @@
+---
+title: spring application 초기화 과정 살펴보기 - 2
+date: '2024-06-21'
+lastmod: '2024-06-21'
+tags: ['java', 'spring']
+draft: false
+layout: PostSimple
+summary: Spring 에서 Configuration 을 읽는 과정, Bean 초기화 과정에 대해서 좀더 자세히 알아보자.
+images: ['/static/images/spring.svg']
+
+이전 문서에서는 spring application 을 실행 할 때 동작하는 여러가지 초기화 작업들에 대해 알아보았다.<br/>
+이번에는 초기화 작업중에서 ComponentScan 작업에 대해서 집중적으로 알아보고자 한다.<br/>
+
+## ComponentScan
+ComponentScan 은 Spring에서 지정된 기본 패키지와 그 하위 패키지를 스캔하여 이러한 주석이 달린 클래스를 찾고, 그런 다음 이를 Spring 애플리케이션 컨텍스트에 빈으로 자동 등록한다.
+
+## ComponentScan 과정
+ComponentScan 설정방법
+1. @ComponentScan annotation을 기반으로 동작한다.
+2. spring.xml 파일을 작성한다.
+
+주로 1번 방법을 많이쓰므로(spring.xml 파일을 작성하는 방법은 거의 쓰지 않는다.) annotation 방법에 대해 알아보자.
+
+
+
+
+
+```java
+@SpringBootApplication
+public class TestApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(TestApplication.class, args);
+	}
+}
+```
+이전 문서에서 봤듯이 spring boot application은 SpringApplication.run 메소드에서 시작한다.<br/>
+그러나 @ComponentScan annotation이 보이지 않는다.
+```java
+@Target(ElementType.TYPE)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Inherited
+@SpringBootConfiguration
+@EnableAutoConfiguration
+@ComponentScan(excludeFilters = { @Filter(type = FilterType.CUSTOM, classes = TypeExcludeFilter.class),
+		@Filter(type = FilterType.CUSTOM, classes = AutoConfigurationExcludeFilter.class) })
+public @interface SpringBootApplication {
+    ...
+}
+```
+@SpringBootApplication annotation을 보면 @ComponentScan이 있다.<br/>
+즉 @SpringBootApplication annotation 추가하면 해당 클래스의 같은 레벨의 패키지부터 componentScan을 진행한다.(@SpringBootApplication annotation을 붙이지 않으면 프로그램이 시작 안되는 이유이기도 하다)<br/>
