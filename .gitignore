@@ -7,7 +7,8 @@
 /resources/_gen/
 /assets/jsconfig.json
 hugo_stats.json
-
+.idea
+.DS_Store
 # Executable may be added to repository
 hugo.exe
 hugo.darwin

@@ -1,1 +1,29 @@
 theme = 'LoveIt'
+title = 'blog test'
+baseURL = 'https://whitenight209.github.io/'
+languageCode = 'ko-kr'
+
+[author]
+    name = "Cheol Ho Park"
+    homepage = "https://whitenight209.github.io/"
+
+[params.header.title]
+  name = "Dev Blog"
+
+[params]
+  title = "Dev Blog"
+  description = "this is my dev log"
+  defaultTheme = "light"
+[params.app]
+  title = "Dev Blog"
+
+
+    [params.home]
+      [params.home.profile]
+        subtitle = "Fun Programing!!"
+        avatarURL= "/images/avatar.png"
+
+      [params.page.share]
+        enable = false
+
+
