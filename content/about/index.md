@@ -10,4 +10,4 @@ math:
   enable: true
 ---
 
-About test Page
+About test PAge
