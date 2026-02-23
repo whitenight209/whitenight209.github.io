@@ -8,7 +8,7 @@ title = 'DevLog'
 [params]
   description = 'A developer blog built with Hugo.'
   author = 'Your Name'
-  github = 'https://github.com/yourname'
+  github = 'https://github.com/whitenight209'
   x = 'https://x.com/yourname'
   showReadingTime = true
   enableCodeCopy = true
