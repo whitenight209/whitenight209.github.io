@@ -1,0 +1,40 @@
+baseURL = 'http://localhost:1313/'
+languageCode = 'en-us'
+title = 'DevLog'
+
+[pagination]
+  pagerSize = 7
+
+[params]
+  description = 'A developer blog built with Hugo.'
+  author = 'Your Name'
+  github = 'https://github.com/yourname'
+  x = 'https://x.com/yourname'
+  showReadingTime = true
+  enableCodeCopy = true
+  enableBackToTop = true
+  enableMermaid = true
+  showToc = true
+  showPostNav = true
+
+[markup]
+  [markup.highlight]
+    noClasses = false
+    style = 'github'
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[menu]
+  [[menu.main]]
+    name = 'Home'
+    url = '/'
+    weight = 1
+  [[menu.main]]
+    name = 'Posts'
+    url = '/posts/'
+    weight = 2
+  [[menu.main]]
+    name = 'About'
+    url = '/about/'
+    weight = 3

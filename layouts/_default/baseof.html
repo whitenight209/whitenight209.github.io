@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="{{ site.LanguageCode }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{ $title := cond .IsHome site.Title (printf "%s | %s" .Title site.Title) }}
+  {{ $description := "" }}
+  {{ with .Params.summary }}
+    {{ $description = . }}
+  {{ else }}
+    {{ $description = site.Params.description }}
+  {{ end }}
+  {{ $ogImage := "" }}
+  {{ with .Params.ogImage }}
+    {{ $ogImage = . | absURL }}
+  {{ else }}
+    {{ $ogImage = "images/og-default.svg" | absURL }}
+  {{ end }}
+
+  <title>{{ $title }}</title>
+  <meta name="description" content="{{ $description }}">
+  <link rel="canonical" href="{{ .Permalink }}">
+  <meta name="robots" content="{{ if or .Params.noindex (eq .Kind "404") }}noindex, nofollow{{ else }}index, follow{{ end }}">
+
+  <meta property="og:site_name" content="{{ site.Title }}">
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+  <meta property="og:title" content="{{ $title }}">
+  <meta property="og:description" content="{{ $description }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:image" content="{{ $ogImage }}">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ $title }}">
+  <meta name="twitter:description" content="{{ $description }}">
+  <meta name="twitter:image" content="{{ $ogImage }}">
+
+  <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+
+  {{ hugo.Generator }}
+  {{ $css := resources.Get "css/main.css" | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+</head>
+<body{{ if site.Params.enableCodeCopy }} data-enable-code-copy="true"{{ end }}{{ if site.Params.enableMermaid }} data-enable-mermaid="true"{{ end }}>
+  {{ partial "header.html" . }}
+  <main class="container">
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ if site.Params.enableBackToTop }}
+    <button id="back-to-top" type="button" aria-label="Back to top">Top</button>
+  {{ end }}
+  {{ partial "footer.html" . }}
+  {{ if site.Params.enableMermaid }}
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" defer></script>
+  {{ end }}
+  {{ with resources.Get "js/main.js" }}
+    {{ $js := . | fingerprint }}
+    <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+  {{ end }}
+</body>
+</html>
