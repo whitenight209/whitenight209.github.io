@@ -1,5 +1,5 @@
 baseURL = 'http://localhost:1313/'
-languageCode = 'en-us'
+languageCode = 'ko-kr'
 title = 'DevLog'
 
 [pagination]
@@ -7,7 +7,7 @@ title = 'DevLog'
 
 [params]
   description = 'A developer blog built with Hugo.'
-  author = 'Your Name'
+  author = 'CheolHo Park'
   github = 'https://github.com/whitenight209'
   x = 'https://x.com/yourname'
   showReadingTime = true
