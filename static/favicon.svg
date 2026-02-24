@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="DevLog">
-  <rect width="64" height="64" fill="#ece9d8"/>
-  <rect x="2" y="2" width="60" height="12" fill="#0a4e8a"/>
-  <rect x="10" y="22" width="44" height="30" fill="#f6f4ea" stroke="#6b6b6b" stroke-width="2"/>
-  <text x="32" y="43" text-anchor="middle" font-family="Tahoma, Segoe UI, sans-serif" font-size="16" fill="#1a1a1a">&lt;/&gt;</text>
-</svg>
