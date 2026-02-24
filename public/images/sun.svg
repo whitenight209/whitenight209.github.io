@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="360" viewBox="0 0 720 360" role="img" aria-labelledby="title desc">
+  <title id="title">Sun</title>
+  <desc id="desc">Simple sun illustration.</desc>
+  <rect width="720" height="360" fill="#d9ecff"/>
+  <circle cx="360" cy="180" r="74" fill="#ffd24d" stroke="#e4a300" stroke-width="8"/>
+  <g stroke="#f2b200" stroke-width="10" stroke-linecap="round">
+    <line x1="360" y1="42" x2="360" y2="86"/>
+    <line x1="360" y1="274" x2="360" y2="318"/>
+    <line x1="222" y1="180" x2="266" y2="180"/>
+    <line x1="454" y1="180" x2="498" y2="180"/>
+    <line x1="269" y1="89" x2="299" y2="119"/>
+    <line x1="421" y1="241" x2="451" y2="271"/>
+    <line x1="269" y1="271" x2="299" y2="241"/>
+    <line x1="421" y1="119" x2="451" y2="89"/>
+  </g>
+</svg>

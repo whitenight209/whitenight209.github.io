@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Productivity on DevLog</title>
+    <link>https://whitenight209.github.io/tags/productivity/</link>
+    <description>Recent content in Productivity on DevLog</description>
+    <generator>Hugo</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Sun, 22 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://whitenight209.github.io/tags/productivity/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>A Practical Dev Workflow</title>
+      <link>https://whitenight209.github.io/posts/dev-workflow/</link>
+      <pubDate>Sun, 22 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://whitenight209.github.io/posts/dev-workflow/</guid>
+      <description>A lightweight workflow for building features with confidence.</description>
+    </item>
+  </channel>
+</rss>

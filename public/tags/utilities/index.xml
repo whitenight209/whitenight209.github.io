@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Utilities on DevLog</title>
+    <link>https://whitenight209.github.io/tags/utilities/</link>
+    <description>Recent content in Utilities on DevLog</description>
+    <generator>Hugo</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Mon, 23 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://whitenight209.github.io/tags/utilities/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Programming Utilities Demo Post</title>
+      <link>https://whitenight209.github.io/posts/programming-utilities-demo/</link>
+      <pubDate>Mon, 23 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>https://whitenight209.github.io/posts/programming-utilities-demo/</guid>
+      <description>Demo article to validate copy code, TOC, back-to-top, tags, and previous/next navigation.</description>
+    </item>
+  </channel>
+</rss>
