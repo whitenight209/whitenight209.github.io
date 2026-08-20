@@ -1,0 +1,19 @@
+{{ if hugo.IsProduction }}
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.18.0/firebase-analytics.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCOOMaF3ebJ38cpYnAAxdjZvSWrqwZVPRk",
+    authDomain: "my-blog-ee89a.firebaseapp.com",
+    projectId: "my-blog-ee89a",
+    storageBucket: "my-blog-ee89a.firebasestorage.app",
+    messagingSenderId: "209719640334",
+    appId: "1:209719640334:web:65b005f0dcc353d6c0d75f",
+    measurementId: "G-YF7YZ2G0DN"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  getAnalytics(app);
+</script>
+{{ end }}

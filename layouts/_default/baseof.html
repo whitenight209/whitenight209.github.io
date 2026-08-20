@@ -52,6 +52,7 @@
   {{ if site.Params.enableMermaid }}
     <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" defer></script>
   {{ end }}
+  {{ partial "firebase-analytics.html" . }}
   {{ with resources.Get "js/main.js" }}
     {{ $js := . | fingerprint }}
     <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>

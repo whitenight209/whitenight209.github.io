@@ -33,6 +33,10 @@
   font-display: swap;
 }
 
+html {
+  scrollbar-gutter: stable;
+}
+
 * {
   box-sizing: border-box;
 }
