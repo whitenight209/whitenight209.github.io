@@ -1,0 +1,12 @@
+{
+  "source_repository": "whitenight209/ergodox_white_bl",
+  "source_commit": "087219a473e939c47ee8a12126e5838a717db9cf",
+  "path": "/zmk-hid-bridge/",
+  "sha256": {
+    "index.html": "ad879b959e39fd525eaf0108a9d4a78bccc2f6cb4b6c7eecb953944902670e04",
+    "style.css": "3ad28d6a0acd2dd73e780c4ef43ed31f490e87a17e7cddeda805d82036e04f16",
+    "app.js": "1111c36fb353285638720100e74bd6b375ad7b63ee401a8f47a664bd94ff717b",
+    "protocol.js": "feef3a65fb107d935eb316fd0315fa27134f126ea9b2729df04794811891c3e1",
+    "scan-cache.js": "16bcb4c116ed8bfe021b92f48bdb82ce0aff8ccc6dc5ed80d702609d63a5e1cd"
+  }
+}
