@@ -1,6 +1,11 @@
 name: Deploy Hugo Docs to gh-pages
 
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'static/zmk-hid-bridge/**'
   pull_request:
     branches:
       - main
@@ -10,6 +15,7 @@ on:
 
 permissions:
   contents: write
+  pages: write
 
 concurrency:
   group: deploy-gh-pages
@@ -19,6 +25,7 @@ jobs:
   deploy:
     if: >-
       github.event_name == 'workflow_dispatch' ||
+      github.event_name == 'push' ||
       (
         github.event.pull_request.merged == true &&
         startsWith(github.event.pull_request.head.ref, 'docs/')
@@ -50,3 +57,8 @@ jobs:
           user_email: whitenight209@gmail.com
           commit_message: "Deploy from ${{ github.sha }}"
           force_orphan: true
+
+      - name: Request GitHub Pages branch build
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh api --method POST "repos/${GITHUB_REPOSITORY}/pages/builds"
