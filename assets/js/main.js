@@ -139,3 +139,28 @@
     setupBackToTop();
   });
 })();
+
+(function () {
+  var clock = document.getElementById('desktop-clock');
+  function updateClock() {
+    if (!clock) return;
+    var now = new Date();
+    clock.textContent = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', hour12: false });
+    clock.dateTime = now.toISOString();
+  }
+  updateClock();
+  if (clock) setInterval(updateClock, 30000);
+  var resize = document.querySelector('.window-resize');
+  if (resize) resize.addEventListener('click', function () {
+    var wide = document.body.classList.toggle('window-wide');
+    resize.setAttribute('aria-pressed', String(wide));
+    resize.setAttribute('aria-label', wide ? '창 원래 크기로 보기' : '창 넓게 보기');
+  });
+  var start = document.querySelector('.start-menu');
+  if (start) {
+    document.addEventListener('click', function (event) { if (!start.contains(event.target)) start.open = false; });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && start.open) { start.open = false; start.querySelector('summary').focus(); }
+    });
+  }
+})();

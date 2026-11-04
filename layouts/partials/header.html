@@ -1,12 +1,8 @@
 <header class="site-header">
-  <div class="container header-inner">
-    <a class="brand" href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a>
-    <nav>
-      <ul class="menu">
-        {{ range site.Menus.main }}
-          <li><a href="{{ .URL | relURL }}">{{ .Name }}</a></li>
-        {{ end }}
-      </ul>
-    </nav>
-  </div>
+  <a class="brand" href="{{ site.Home.RelPermalink }}"><span class="pixel-icon monitor" aria-hidden="true"></span><span>{{ site.Title }}<small>Personal desktop</small></span></a>
+  <nav class="desktop-shortcuts" aria-label="바탕화면 바로가기">
+    <a href="{{ "posts/" | relURL }}"><span class="pixel-icon folder" aria-hidden="true"></span>My Documents</a>
+    <a href="{{ "about/" | relURL }}"><span class="pixel-icon document" aria-hidden="true"></span>About Me</a>
+    {{ with site.Params.github }}<a href="{{ . }}" target="_blank" rel="noopener noreferrer"><span class="pixel-icon monitor" aria-hidden="true"></span>GitHub</a>{{ end }}
+  </nav>
 </header>
