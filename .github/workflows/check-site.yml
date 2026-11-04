@@ -1,0 +1,32 @@
+name: Check Hugo site
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'assets/**'
+      - 'layouts/**'
+      - 'content/**'
+      - 'static/**'
+      - 'hugo.toml'
+      - '.github/workflows/check-site.yml'
+permissions:
+  contents: read
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: peaceiris/actions-hugo@v3
+        with:
+          hugo-version: '0.156.0'
+          extended: true
+      - name: Check JavaScript
+        run: node --check assets/js/main.js
+      - name: Build site
+        run: hugo --minify --baseURL "https://whitenight209.github.io/"
+      - name: Upload built site
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-98-preview
+          path: public/
+          retention-days: 3

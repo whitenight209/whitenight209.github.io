@@ -1,19 +1,19 @@
 {{ define "main" }}
 <section class="hero">
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
+  <div class="welcome-art" aria-hidden="true"><span class="pixel-icon monitor"></span><span class="welcome-version">98</span></div>
+  <div><p class="eyebrow">WELCOME TO MY DESKTOP</p><h1>{{ .Title }}</h1>{{ .Content }}<a class="classic-button" href="{{ "posts/" | relURL }}">글 둘러보기 →</a></div>
 </section>
-
-<section>
-  <h2>Latest Posts</h2>
+<section class="documents">
+  <div class="section-heading"><h2><span class="pixel-icon folder" aria-hidden="true"></span>Latest documents</h2><a href="{{ "posts/" | relURL }}">모든 글 보기 →</a></div>
+  <div class="file-columns" aria-hidden="true"><span>Name</span><span>Modified</span></div>
   <div class="post-list">
     {{ range first 5 (where site.RegularPages "Section" "posts") }}
-      <article class="card">
-        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
-        <p class="meta">{{ .Date.Format "Jan 2, 2006" }}{{ if site.Params.showReadingTime }} · {{ .ReadingTime }} min read{{ end }}</p>
-        <p>{{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary }}{{ end }}</p>
-      </article>
-    {{ end }}
+    <article class="card">
+      <span class="pixel-icon document file-icon" aria-hidden="true"></span>
+      <div class="file-content"><h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3><p>{{ with .Params.summary }}{{ . }}{{ else }}{{ .Summary | plainify }}{{ end }}</p>{{ if site.Params.showReadingTime }}<span class="reading-time">{{ .ReadingTime }} min read</span>{{ end }}</div>
+      <time class="file-date" datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006.01.02" }}</time>
+    </article>
+    {{ else }}<p>아직 작성된 글이 없습니다.</p>{{ end }}
   </div>
 </section>
 {{ end }}

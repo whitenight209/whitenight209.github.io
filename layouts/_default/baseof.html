@@ -42,8 +42,19 @@
 </head>
 <body{{ if site.Params.enableCodeCopy }} data-enable-code-copy="true"{{ end }}{{ if site.Params.enableMermaid }} data-enable-mermaid="true"{{ end }}>
   {{ partial "header.html" . }}
-  <main class="container">
-    {{ block "main" . }}{{ end }}
+  <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
+  <main class="container desktop-window" id="main-content" tabindex="-1">
+    <div class="window-titlebar">
+      <span class="window-caption"><span class="pixel-icon monitor" aria-hidden="true"></span>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ .Title }}{{ end }}</span>
+      <button class="window-resize" type="button" aria-label="창 넓게 보기" aria-pressed="false">□</button>
+    </div>
+    <nav class="window-menubar" aria-label="주 메뉴">
+      {{ range site.Menus.main }}<a href="{{ .URL | relURL }}"{{ if eq ($.RelPermalink) (.URL | relURL) }} aria-current="page"{{ end }}>{{ .Name }}</a>{{ end }}
+      {{ with site.Home.OutputFormats.Get "rss" }}<a href="{{ .RelPermalink }}">RSS</a>{{ end }}
+    </nav>
+    <div class="address-bar"><span>Address</span><span class="address-value"><span class="pixel-icon folder" aria-hidden="true"></span>{{ site.Title }}{{ if not .IsHome }} / {{ .Title }}{{ end }}</span></div>
+    <div class="window-content">{{ block "main" . }}{{ end }}</div>
+    <div class="window-status"><span>{{ if .IsHome }}{{ len (where site.RegularPages "Section" "posts") }} documents{{ else }}{{ .Title }}{{ end }}</span><span>My Computer</span></div>
   </main>
   {{ if site.Params.enableBackToTop }}
     <button id="back-to-top" type="button" aria-label="Back to top">Top</button>
